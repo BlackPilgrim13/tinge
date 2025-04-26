@@ -13,21 +13,28 @@ Showcase of our renders
 <img alt="Mesh render 1" src="./showcase/teapot.png">
 
 * Renders 3D scenes using ray tracing.
-* Supports spheres, planes, triangles.
-* Materials: Diffuse, Emissive, Metallic, Refractive.
+* Supports Spheres, Planes, Triangles. 
+* Materials: Diffuse, Emissive, Metallic, Transmissive, Dielectric.
 
 ## HOW IT WORKS?
 
 Rays are generated from a virtual camera. Each ray is traced into the 3D scene. If it hits an object, its material defines the behavior:
 
-- Diffuse: scattered reflection
-- Metallic: specular reflection
-- Transmission: refracted rays
-- Emissive: light emission
+- Diffuse: Equal reflection in all directions 
+- Metallic: Emits no light of its own, has probability p to act as diffuse or reflective
+- Transmission: Purely transmissive, Schlick's approximation ignored 
+- Emissive: Material is considered not to reflect and purely emit
+- Dielectric: Reflective and Refractive based on Fresnel's Equations
+
+There are intersection schemes for different shapes, based on which intersection is determined. Further, for more complex shapes, they can be represented as a collection of triangles. The complex shape can be bounded by a box and intersection can be checked for if the ray intersects the bounding box. Further, we also have to take care that we don't accept an intersection that happpens in the backward direction. 
+
+- Plane: Check if 't' (Ray parameter) at point of intersection is positive or not.
+- Sphere: Check distance from ray origin to point of intersection.
+- Triangle: Möller–Trumbore Algorithm 
 
 The process recurses with new rays (path tracing).
 Color contributions accumulate per pixel.
-Final image is saved as a png file.
+Final image is saved as a png file in bin. 
 
 
 ## HOW TO RENDER IMAGES ?
