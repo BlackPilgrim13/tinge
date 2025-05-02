@@ -10,7 +10,7 @@ Showcase of our renders
 <img alt="Material render 1" src="./showcase/test_5_10.png">
 <img alt="Material render 2" src="./showcase/colour_box_1.png">
 <img alt="Material render 3" src="./showcase/metal_ball.png">
-<img alt="Mesh render 1" src="./showcase/teapot.png">
+<img alt="Mesh render 1" src="./showcase/teapot_dark.png">
 
 * Renders 3D scenes using ray tracing.
 * Supports Spheres, Planes, Triangles. 
@@ -48,22 +48,20 @@ You can create your own 3D models using Blender or any other 3D modelling softwa
 
 2. Export as `.obj`
 
-In Blender:
-
-1. Select the object(s) you want to export.
-2. Go to `File → Export → Wavefront (.obj)`
-3. Use these recommended export settings:
+- In Blender, select the object(s) you want to export.
+- Go to `File → Export → Wavefront (.obj)`
+- Use these recommended export settings:
    - Selection Only** 
    - Include Normals**
    - Objects as OBJ Objects**
 
-This will generate:
-- `your_model.obj` — contains your model’s vertex positions, normals, and faces.
+- This will generate:
+   - `your_model.obj` — contains your model’s vertex positions, normals, and faces.
 
 3. Add the Model to Your Tinge Project
 
-* Place your `.obj` file inside the Tinge folder
-* Modify the code in the file scene_generator.cpp to set up the scene that you wish to render
+- Place your `.obj` file inside the Tinge folder
+- Modify the code in the file scene_generator.cpp to set up the scene that you wish to render
 
 
 ## ENVIRONMENT REQUIREMENTS
